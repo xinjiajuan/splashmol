@@ -20,6 +20,7 @@ Simply type in chemical formulas in their natural form, with subscripts replaced
   - They are: `C H O N P S K I Ba Au Ca Cl Na Mg Al Si Mn Fe Cu Zn Ag Hg`
 - The above elements' atomic weight are stored in their rounded form, also intended for use in high school chemistry calculations. Those two problems will be solved in future versions.
 
+Please note that all of those problems won't cause runtime errors; they'll be automatically ignored though the result might be wrong.  
 ## TODO
 - [ ] Rewrite frontend using QML and adapt Material Design
 - [ ] Improve algorithm & solve the problems listed above.
