@@ -13,6 +13,8 @@ Simply type in chemical formulas in their natural form, with subscripts replaced
 `AgCl`
 `KClO3`
 
+## Screenshot
+![screenshot](https://i.loli.net/2021/01/20/ioFeBlM653v1hPA.png)
 ## Known Limitations
 - Some special forms of formulas, including *multiple (>1) layers of parentheses* and *water of hydration* are not supported. Support for these formats will be added in future versions.
 - Only supports a small set of elements that are commonly used in high school chemistry. 
