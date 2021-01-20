@@ -21,12 +21,12 @@ Simply type in chemical formulas in their natural form, with subscripts replaced
 - The above elements' atomic weight are stored in their rounded form, also intended for use in high school chemistry calculations. Those two problems will be solved in future versions.
 
 ## TODO
-- [] Rewrite frontend using QML and adapt Material Design
-- [] Improve algorithm & solve the problems listed above.
-- [] Design a new icon & adapt them in macOS
-- [] Publish prebuilt binaries for Windows, macOS and Linux.
-- [] Port the app to Android 
-- [] ...more?
+- [ ] Rewrite frontend using QML and adapt Material Design
+- [ ] Improve algorithm & solve the problems listed above.
+- [ ] Design a new icon & adapt them in macOS
+- [ ] Publish prebuilt binaries for Windows, macOS and Linux.
+- [ ] Port the app to Android 
+- [ ] ...more?
 
 ## Changelog
 v1.0 - First working version.
