@@ -32,6 +32,17 @@ double calc_mass(string input) {
                 else 
                     tmp += mp[input[i]];
             }
+        } else if (input[i] == '-') { // parse water of hydration
+            int tmp_loc = i + 1;
+            for (int j = i + 1; j < input.length() - 1;
+                 j++, tmp_loc++) // get multiple digits
+                if (input[j] >= '0' && input[j] <= '9')
+                    num = num * 10 + (input[j] - '0');
+                else
+                    break;
+            if (input[tmp_loc] == 'H' && input[tmp_loc + 1] == '2' &&
+                input[tmp_loc + 2] == 'O') // some pre-checks
+                ans += ((num - 1) * 18);   // WARNING: possibly a bug here
         }
     }
     flush();
