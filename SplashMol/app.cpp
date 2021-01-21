@@ -3,9 +3,9 @@
 #include "ui_app.h"
 App::App(QWidget *parent): QWidget(parent), ui(new Ui::App){
     ui->setupUi(this);
-    // ui->resultBox->setFont(QFont("Google Sans"));
-    ui->resultBox->setFontPointSize(48);
-    ui->resultBox->setAlignment(Qt::AlignLeft);
+    this->setFixedSize(this->width(), this->height());
+    ui->resultBox->setFontPointSize(56);
+    ui->resultBox->setAlignment(Qt::AlignCenter);
     ui->calcButton->setShortcut(Qt::Key_Enter);
     ui->calcButton->setShortcut(Qt::Key_Return);
     init_table();
@@ -21,5 +21,5 @@ void App::on_calcButton_clicked() {
 }
 void App::on_aboutButton_clicked() {
     QMessageBox::about(this, tr("About SplashMol"),
-                       tr("SplashMol v1.0 \r\nMade with <3 by CRH6F-A-0464"));
+                       tr("SplashMol v1.1 \r\nMade with <3 by CRH6F-A-0464"));
 }
