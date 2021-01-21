@@ -37,12 +37,5 @@ Please note that all of those problems won't cause runtime errors; they'll be au
 
 ## Changelog
 
-**v1.1**
-
-- Implemented support for water of hydration.
-- Improved display of results.
-
-**v1.0**
-
-- First working version.
+See [Releases](https://github.com/CRH6F-A-0464/splashmol/releases).
 
