@@ -1,9 +1,11 @@
-# SplashMol
+#  SplashMol
 > A simple &amp; straight forward molecular mass calculator, written in Qt 5.
 > Chiefly designed for high school students. Uses a (possibly buggy) simple bruteforce algorithm.
 
 ## Usage
 Simply type in chemical formulas in their natural form, with subscripts replaced by normal numbers, then press Enter or click "Calculate". 
+
+For formulas involving water of hydration (water of crystallization), use `-` as separator.
 
 **Examples:**
 `Ca(OH)2`
@@ -12,15 +14,17 @@ Simply type in chemical formulas in their natural form, with subscripts replaced
 `CCl4`
 `AgCl`
 `KClO3`
+`CuSO4-5H2O`
 
 ## Screenshot
 ![screenshot](https://i.loli.net/2021/01/20/ioFeBlM653v1hPA.png)
 ## Known Limitations
-- Some special forms of formulas, including *multiple (>1) layers of parentheses* and *water of hydration* are not supported. Support for these formats will be added in future versions.
+- Multiple (>1) layers of parentheses is currently not supported. This will be implemented later down the road.
 - Only supports a small set of elements that are commonly used in high school chemistry. 
 
   - They are: `C H O N P S K I Ba Au Ca Cl Na Mg Al Si Mn Fe Cu Zn Ag Hg`
-- The above elements' atomic weight are stored in their rounded form, also intended for use in high school chemistry calculations. Those two problems will be solved in future versions.
+- The above elements' atomic weight are stored in their rounded form, also intended for use in high school chemistry calculations. 
+- Only `-` instead of `·` is supported in formulas involving water of hydration. Both separators would be supported in the future. 
 
 Please note that all of those problems won't cause runtime errors; they'll be automatically ignored though the result might be wrong.  
 ## TODO
@@ -32,4 +36,13 @@ Please note that all of those problems won't cause runtime errors; they'll be au
 - [ ] ...more?
 
 ## Changelog
-v1.0 - First working version.
+
+**v1.1**
+
+- Implemented support for water of hydration.
+- Improved display of results.
+
+**v1.0**
+
+- First working version.
+
