@@ -4,8 +4,6 @@
 App::App(QWidget *parent): QWidget(parent), ui(new Ui::App){
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
-    ui->resultBox->setFontPointSize(56);
-    ui->resultBox->setAlignment(Qt::AlignCenter);
     ui->calcButton->setShortcut(Qt::Key_Enter);
     ui->calcButton->setShortcut(Qt::Key_Return);
     init_table();
@@ -17,7 +15,8 @@ void App::on_calcButton_clicked() {
     input = ui->lineEdit->text();
     std::string str = input.toUtf8().constData();
     ans = calc_mass(str);
-    ui->resultBox->setText(QString::number(ans));
+    ui->resultLabel->setText(tr("<center><p style=\"font-size:48px\">") +
+                             QString::number(ans) + tr("</p></center>"));
 }
 void App::on_aboutButton_clicked() {
     QMessageBox::about(this, tr("About SplashMol"),
