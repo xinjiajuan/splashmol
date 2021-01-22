@@ -40,3 +40,6 @@ double multi_name_parse(char a, char b) { // parse names with two chars
     tmpstr += b;
     return mp2[tmpstr];
 }
+bool is_digit(char x) { return x >= '0' && x <= '9'; }
+bool is_uppercase(char x) { return x >= 'A' && x <= 'Z'; }
+bool is_lowercase(char x) { return x >= 'a' && x <= 'z'; }

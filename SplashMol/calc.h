@@ -7,6 +7,9 @@ using namespace std;
 void init();
 void init_table();
 void flush();
+bool is_digit(char x);
+bool is_uppercase(char x);
+bool is_lowercase(char x);
 double multi_name_parse(char a, char b);
 double calc_mass(string input);
 extern map<char, double> mp;    // single char map

@@ -20,5 +20,5 @@ void App::on_calcButton_clicked() {
 }
 void App::on_aboutButton_clicked() {
     QMessageBox::about(this, tr("About SplashMol"),
-                       tr("SplashMol v1.1 \r\nMade with <3 by CRH6F-A-0464"));
+                       tr("SplashMol v1.2 \r\nMade with <3 by CRH6F-A-0464"));
 }

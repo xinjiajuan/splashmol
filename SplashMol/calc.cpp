@@ -1,21 +1,22 @@
 #include "calc.h"
+#include <iostream>
 double calc_mass(string input) {
     init();
     bool inGroup = false; // in parentheses flag
     input += '*';
     for (int i = 0; i < (input.length() - 1); i++) {
-        if ((input[i] >= 'A' && input[i] <= 'Z') && !inGroup) { // parse normal char
-            if (input[i + 1] >= '0' && input[i + 1] <= '9') // followed by subscripts?
+        if (is_uppercase(input[i]) && !inGroup) { // parse normal char
+            if (is_digit(input[i + 1]))           // followed by subscripts?
                 tmp += mp[input[i]];
-            else if (input[i + 1] >= 'a' && input[i + 1] <= 'z') // name has two chars?
+            else if (is_lowercase(input[i + 1])) // name has two chars?
                 tmp += multi_name_parse(input[i], input[i+1]);
             else {
                 ans += mp[input[i]];
                 flush();
             }
-        } else if (input[i] >= '0' && input[i] <= '9') {  // parse subscript number
+        } else if (is_digit(input[i])) { // parse subscript number
             for (int j = i; j < input.length() - 1; j++)  // get multiple digits
-                if (input[j] >= '0' && input[j] <= '9') 
+                if (is_digit(input[j]))
                     num = num * 10 + (input[j] - '0');
                 else
                     break;
@@ -23,11 +24,12 @@ double calc_mass(string input) {
             tmp = num = 0;
         } else if (input[i] == ')') { // end of parentheses
             inGroup = false;
-        } else if (input[i] == '(' || inGroup) { // entering a pair of parentheses
+        } else if (input[i] == '(' ||
+                   inGroup) { // entering a pair of parentheses
             if (!inGroup) flush();
             inGroup = true;
-            if (input[i] >= 'A' && input[i] <= 'Z') { // parse names
-                if (input[i + 1] >= 'a' && input[i + 1] <= 'z')
+            if (is_uppercase(input[i])) { // parse names
+                if (is_lowercase(input[i + 1]))
                     tmp += multi_name_parse(input[i], input[i+1]);
                 else 
                     tmp += mp[input[i]];
@@ -36,13 +38,15 @@ double calc_mass(string input) {
             int tmp_loc = i + 1;
             for (int j = i + 1; j < input.length() - 1;
                  j++, tmp_loc++) // get multiple digits
-                if (input[j] >= '0' && input[j] <= '9')
+                if (is_digit(input[j]))
                     num = num * 10 + (input[j] - '0');
                 else
                     break;
             if (input[tmp_loc] == 'H' && input[tmp_loc + 1] == '2' &&
-                input[tmp_loc + 2] == 'O') // some pre-checks
-                ans += ((num - 1) * 18);   // WARNING: possibly a bug here
+                input[tmp_loc + 2] == 'O') { // some pre-checks
+                ans += ((num)*18);
+                i = tmp_loc + 3;
+            }
         }
     }
     flush();
