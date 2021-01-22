@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/assets">
         <file>assets/SplashMol.png</file>
     </qresource>
 </RCC>
