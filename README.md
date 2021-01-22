@@ -19,12 +19,12 @@ For formulas involving water of hydration (water of crystallization), use `-` as
 ## Screenshot
 ![screenshot](https://i.loli.net/2021/01/20/ioFeBlM653v1hPA.png)
 ## Known Limitations
-- Multiple (>1) layers of parentheses is currently not supported. This will be implemented later down the road.
+- Multiple (>1) layers of parentheses are currently not supported. This will be implemented later down the road.
 - Only supports a small set of elements that are commonly used in high school chemistry. 
 
   - They are: `C H O N P S K I Ba Au Ca Cl Na Mg Al Si Mn Fe Cu Zn Ag Hg`
 - The above elements' atomic weight are stored in their rounded form, also intended for use in high school chemistry calculations. 
-- Only `-` instead of `·` is supported in formulas involving water of hydration. Both separators would be supported in the future. 
+- Only `-` instead of `·` is supported in formulas involving water of hydration due to issues with `utf-8` in code; ~~Both separators would be supported in the future.~~ *due to limitations of `QString` and `QChar`, this should be a wontfix for a peroid of time.*
 
 Please note that all of those problems won't cause runtime errors; they'll be automatically ignored though the result might be wrong.  
 ## TODO
