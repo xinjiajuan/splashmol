@@ -13,10 +13,10 @@ App::~App(){
 }
 void App::on_calcButton_clicked() {
     input = ui->lineEdit->text();
-    std::string str = input.toUtf8().constData();
-    ans = calc_mass(str);
-    ui->resultLabel->setText(tr("<center><p style=\"font-size:48px\">") +
-                             QString::number(ans) + tr("</p></center>"));
+    input.toUtf8().constData();
+    ans = calc_mass(input.toUtf8().constData());
+    ui->resultLabel->setText(tr("<center><p style=\"font-size:28px\">") +
+                             QString::number(ans) + tr("</center></p>"));
 }
 void App::on_aboutButton_clicked() {
     QMessageBox::about(this, tr("About SplashMol"),
