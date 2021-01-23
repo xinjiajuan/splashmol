@@ -111,7 +111,7 @@
      <string>&lt;b&gt; See result here &lt;/b&gt;</string>
     </property>
     <property name="textFormat">
-     <enum>Qt::RichText</enum>
+     <enum>Qt::AutoText</enum>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
