@@ -7,14 +7,17 @@ Simply type in chemical formulas in their natural form, with subscripts replaced
 
 For formulas involving water of hydration (water of crystallization), use `-` as separator.
 
+Please note that all elements are case sensitive.
+
 **Examples:**
 `Ca(OH)2`
 `Cu2(OH)2CO3`
 `NH4OH`
 `CCl4`
 `AgCl`
-`KClO3`
 `CuSO4-5H2O`
+
+`KAl(SO4)2-12H2O`
 
 ## Screenshot
 ![v1.2 Screenshot](screenshot.png)
