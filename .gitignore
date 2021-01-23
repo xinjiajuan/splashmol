@@ -1,4 +1,5 @@
 *.user
+*.dmg
 .DS_Store
 build-SplashMol-Desktop-Debug/*
 build-SplashMol-Desktop-Release/*
