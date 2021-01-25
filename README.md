@@ -34,7 +34,7 @@ Please note that all of those problems won't cause runtime errors; they'll be au
 - [ ] Rewrite frontend using QML and adapt Material Design
 - [ ] Improve algorithm & solve the problems listed above.
 - [ ] Design a new icon & adapt them in macOS
-- [x] Publish prebuilt binaries for Windows, macOS and Linux.
+- [x] ~~Publish prebuilt binaries for Windows, macOS and Linux.~~
 - [ ] Port the app to Android 
 - [ ] ...more?
 
