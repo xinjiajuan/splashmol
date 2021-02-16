@@ -25,5 +25,6 @@ class App : public QWidget{
     QString input;
     double ans;
     QFont adaptive_font_size(QFont f, QString str);
+    void change_font_size(int size);
 };
 #endif // APP_H

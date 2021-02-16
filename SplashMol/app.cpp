@@ -13,17 +13,23 @@ App::~App(){
 }
 void App::on_calcButton_clicked() {
     input = ui->lineEdit->text();
-    input.toUtf8().constData();
     ans = calc_mass(input.toUtf8().constData());
     QString str = QString::number(ans, 'f', 1);
     if (str.endsWith(".0"))
         str.remove(".0");
-    ui->resultLabel->setFont(adaptive_font_size(ui->resultLabel->font(), str));
-    ui->resultLabel->setText(str);
+    if (!str.compare("0") && !input.compare("")) {
+        ui->resultLabel->setFont(
+            adaptive_font_size(ui->resultLabel->font(), str));
+        ui->resultLabel->setText(str);
+    } else {
+        ui->resultLabel->clear();
+        change_font_size(13);
+        ui->resultLabel->setText("<b> See result here </b>");
+    }
 }
 void App::on_aboutButton_clicked() {
     QMessageBox::about(this, tr("About SplashMol"),
-                       tr("SplashMol v1.2 \r\nMade with <3 by "
+                       tr("SplashMol v1.3 \r\nMade with <3 by "
                           "CRH6F-A-0464\r\n\r\nBuilt with Qt 5.14.1"));
 }
 QFont App::adaptive_font_size(QFont f, QString str) {
@@ -42,4 +48,9 @@ QFont App::adaptive_font_size(QFont f, QString str) {
             f.setPointSize(f.pointSize() - 8);
     }
     return f;
+}
+void App::change_font_size(int size) {
+    QFont tmpfont = ui->resultLabel->font();
+    tmpfont.setPointSize(size);
+    ui->resultLabel->setFont(tmpfont);
 }
