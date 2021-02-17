@@ -11,15 +11,25 @@ App::App(QWidget *parent): QWidget(parent), ui(new Ui::App){
     ui->calcButton->setShortcut(Qt::Key_Enter);
     ui->calcButton->setShortcut(Qt::Key_Return);
     connect(ui->lineEdit, &QLineEdit::textEdited, this, &App::clear_text_area);
-    init_table();
+    ui->radioButtonSchool->setChecked(true);
+    init_table_school();
 }
 App::~App(){
     delete ui;
 }
 void App::on_calcButton_clicked() {
+    int mode_selection = mode->checkedId();
+    if (!mode_selection)
+        init_table_normal();
+    else
+        init_table_school();
     input = ui->lineEdit->text();
     ans = calc_mass(input.toUtf8().constData());
-    QString str = QString::number(ans, 'f', 1);
+    QString str;
+    if (!mode_selection)
+        str = QString::number(ans, 'f', 2);
+    else
+        str = QString::number(ans, 'f', 1);
     if (str.endsWith(".0"))
         str.remove(".0");
     if (str != "0" && input != "") {

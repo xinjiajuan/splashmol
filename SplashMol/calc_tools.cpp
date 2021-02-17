@@ -4,7 +4,9 @@ map<string, double> mp2; // double char map
 double ans, tmp;
 int num;
 void init() { ans = tmp = num = 0; }
-void init_table() {
+void init_table_school() {
+    mp.clear();
+    mp2.clear();
     mp['C'] = 12.0;
     mp['H'] = 1.0;
     mp['O'] = 16.0;
@@ -27,6 +29,24 @@ void init_table() {
     mp2["Zn"] = 65.0;
     mp2["Ag"] = 108.0;
     mp2["Hg"] = 201.0;
+}
+void init_table_normal() {
+    mp.clear();
+    mp2.clear();
+    mp['B'] = 10.811;
+    mp['C'] = 12.0107;
+    mp['F'] = 18.998403163;
+    mp['H'] = 1.00794;
+    mp['I'] = 126.90447;
+    mp['K'] = 39.0983;
+    mp['N'] = 14.0067;
+    mp['O'] = 15.9994;
+    mp['P'] = 30.973761998;
+    mp['S'] = 32.065;
+    mp['U'] = 238.02891;
+    mp['V'] = 50.9415;
+    mp['W'] = 183.84;
+    mp['Y'] = 88.90584;
 }
 void flush() { // purge tmp value to ans
     if (tmp >= 0.0) {
