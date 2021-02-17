@@ -1,11 +1,16 @@
 #include "app.h"
 #include "calc.h"
 #include "ui_app.h"
+#include <QDebug>
 App::App(QWidget *parent): QWidget(parent), ui(new Ui::App){
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
+    mode = new QButtonGroup(this);
+    mode->addButton(ui->radioButtonNormal, 0);
+    mode->addButton(ui->radioButtonSchool, 1);
     ui->calcButton->setShortcut(Qt::Key_Enter);
     ui->calcButton->setShortcut(Qt::Key_Return);
+    connect(ui->lineEdit, &QLineEdit::textEdited, this, &App::clear_text_area);
     init_table();
 }
 App::~App(){
@@ -17,15 +22,19 @@ void App::on_calcButton_clicked() {
     QString str = QString::number(ans, 'f', 1);
     if (str.endsWith(".0"))
         str.remove(".0");
-    if (!str.compare("0") && !input.compare("")) {
+    if (str != "0" && input != "") {
         ui->resultLabel->setFont(
             adaptive_font_size(ui->resultLabel->font(), str));
         ui->resultLabel->setText(str);
-    } else {
-        ui->resultLabel->clear();
-        change_font_size(13);
-        ui->resultLabel->setText("<b> See result here </b>");
-    }
+        ui->calcButton->setIcon(QIcon(":/assets/assets/finish.png"));
+    } else
+        clear_text_area();
+}
+void App::clear_text_area() {
+    ui->resultLabel->clear();
+    change_font_size(14);
+    ui->resultLabel->setText("<b> See result here </b>");
+    ui->calcButton->setIcon(QIcon(":/assets/assets/calc.png"));
 }
 void App::on_aboutButton_clicked() {
     QMessageBox::about(this, tr("About SplashMol"),

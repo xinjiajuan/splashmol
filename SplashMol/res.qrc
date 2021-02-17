@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/assets">
         <file>assets/SplashMol.png</file>
+        <file>assets/about.png</file>
+        <file>assets/school.png</file>
+        <file>assets/normal.png</file>
+        <file>assets/finish.png</file>
+        <file>assets/calc.png</file>
     </qresource>
 </RCC>
