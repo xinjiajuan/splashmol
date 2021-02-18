@@ -1,5 +1,4 @@
 #include "calc.h"
-#include <iostream>
 double calc_mass(string input) {
     init();
     bool inGroup = false; // in parentheses flag
@@ -9,11 +8,11 @@ double calc_mass(string input) {
         char i1 = input.at(i), i2 = input.at(i + 1);
         if (is_uppercase(i1) && !inGroup) { // parse normal char
             if (is_digit(i2))               // followed by subscripts?
-                tmp += mp[i1];
+                tmp += mp[string(1, i1)];
             else if (is_lowercase(i2)) // name has two chars?
-                tmp += multi_name_parse(i1, i2);
+                tmp += mp[input.substr(i, 2)];
             else {
-                ans += mp[i1];
+                ans += mp[string(1, i1)];
                 flush();
             }
         } else if (is_digit(i1)) { // parse subscript number
@@ -34,9 +33,9 @@ double calc_mass(string input) {
             inGroup = true;
             if (is_uppercase(i1)) { // parse names
                 if (is_lowercase(i2))
-                    tmp += multi_name_parse(i1, i2);
+                    tmp += mp[input.substr(i, 2)];
                 else
-                    tmp += mp[i1];
+                    tmp += mp[string(1, i1)];
             }
         } else if (i1 == '-') { // parse water of hydration
             unsigned long tmp_loc = i + 1;

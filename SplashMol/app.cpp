@@ -67,7 +67,7 @@ QFont App::adaptive_font_size(QFont f, QString str) {
             bound.height() <= ui->resultLabel->height())
             fit = true;
         else
-            f.setPointSize(f.pointSize() - 8);
+            f.setPointSize(f.pointSize() - 6);
     }
     return f;
 }
