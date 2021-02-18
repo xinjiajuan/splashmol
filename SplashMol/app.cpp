@@ -11,6 +11,8 @@ App::App(QWidget *parent): QWidget(parent), ui(new Ui::App){
     ui->calcButton->setShortcut(Qt::Key_Enter);
     ui->calcButton->setShortcut(Qt::Key_Return);
     connect(ui->lineEdit, &QLineEdit::textEdited, this, &App::clear_text_area);
+    ui->spinBox->setMaximum(9);
+    ui->spinBox->setValue(2);
     ui->radioButtonSchool->setChecked(true);
     init_table_school();
 }
@@ -27,11 +29,12 @@ void App::on_calcButton_clicked() {
     ans = calc_mass(input.toUtf8().constData());
     QString str;
     if (!mode_selection)
-        str = QString::number(ans, 'f', 2);
-    else
+        str = QString::number(ans, 'f', ui->spinBox->value());
+    else {
         str = QString::number(ans, 'f', 1);
-    if (str.endsWith(".0"))
-        str.remove(".0");
+        if (str.endsWith(".0"))
+            str.remove(".0");
+    }
     if (str != "0" && input != "") {
         ui->resultLabel->setFont(
             adaptive_font_size(ui->resultLabel->font(), str));
