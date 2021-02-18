@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     calc_tools.cpp \
+    init_table.cpp \
     main.cpp \
     app.cpp \
     calc.cpp
