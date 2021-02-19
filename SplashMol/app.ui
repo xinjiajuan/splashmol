@@ -41,9 +41,9 @@
   <widget class="QPushButton" name="calcButton">
    <property name="geometry">
     <rect>
-     <x>12</x>
+     <x>21</x>
      <y>130</y>
-     <width>110</width>
+     <width>101</width>
      <height>70</height>
     </rect>
    </property>
@@ -73,9 +73,9 @@
   <widget class="QPushButton" name="aboutButton">
    <property name="geometry">
     <rect>
-     <x>12</x>
+     <x>21</x>
      <y>200</y>
-     <width>110</width>
+     <width>101</width>
      <height>30</height>
     </rect>
    </property>
@@ -214,13 +214,13 @@
      <rect>
       <x>100</x>
       <y>20</y>
-      <width>30</width>
+      <width>31</width>
       <height>30</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>8</pointsize>
+      <pointsize>7</pointsize>
      </font>
     </property>
     <property name="text">
