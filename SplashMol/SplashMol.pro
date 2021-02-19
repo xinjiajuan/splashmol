@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     calc_tools.cpp \
+    init_table.cpp \
     main.cpp \
     app.cpp \
     calc.cpp
@@ -36,4 +37,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     res.qrc
 ICON = assets/SplashMol.png
+RC_ICONS = assets/SplashMol.png
 QMAKE_TARGET_BUNDLE_PREFIX = com.crh6fa0464

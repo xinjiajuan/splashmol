@@ -1,5 +1,7 @@
 *.user
 *.dmg
 .DS_Store
+*.autosave
+*.swp
 build-SplashMol-Desktop-Debug/*
 build-SplashMol-Desktop-Release/*

@@ -1,29 +1,57 @@
 #include "app.h"
 #include "calc.h"
 #include "ui_app.h"
+#include <QDebug>
 App::App(QWidget *parent): QWidget(parent), ui(new Ui::App){
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
+    mode = new QButtonGroup(this);
+    mode->addButton(ui->radioButtonNormal, 0);
+    mode->addButton(ui->radioButtonSchool, 1);
     ui->calcButton->setShortcut(Qt::Key_Enter);
     ui->calcButton->setShortcut(Qt::Key_Return);
-    init_table();
+    connect(ui->lineEdit, &QLineEdit::textEdited, this, &App::clear_text_area);
+    ui->spinBox->setMaximum(9);
+    ui->spinBox->setValue(2);
+    ui->radioButtonSchool->setChecked(true);
+    init_table_school();
 }
 App::~App(){
     delete ui;
 }
 void App::on_calcButton_clicked() {
+    int mode_selection = mode->checkedId();
+    if (!mode_selection)
+        init_table_normal();
+    else
+        init_table_school();
     input = ui->lineEdit->text();
-    input.toUtf8().constData();
     ans = calc_mass(input.toUtf8().constData());
-    QString str = QString::number(ans, 'f', 1);
-    if (str.endsWith(".0"))
-        str.remove(".0");
-    ui->resultLabel->setFont(adaptive_font_size(ui->resultLabel->font(), str));
-    ui->resultLabel->setText(str);
+    QString str;
+    if (!mode_selection)
+        str = QString::number(ans, 'f', ui->spinBox->value());
+    else {
+        str = QString::number(ans, 'f', 1);
+        if (str.endsWith(".0"))
+            str.remove(".0");
+    }
+    if (str != "0" && input != "") {
+        ui->resultLabel->setFont(
+            adaptive_font_size(ui->resultLabel->font(), str));
+        ui->resultLabel->setText(str);
+        ui->calcButton->setIcon(QIcon(":/assets/assets/finish.png"));
+    } else
+        clear_text_area();
+}
+void App::clear_text_area() {
+    ui->resultLabel->clear();
+    change_font_size(14);
+    ui->resultLabel->setText("<b> See result here </b>");
+    ui->calcButton->setIcon(QIcon(":/assets/assets/calc.png"));
 }
 void App::on_aboutButton_clicked() {
     QMessageBox::about(this, tr("About SplashMol"),
-                       tr("SplashMol v1.2 \r\nMade with <3 by "
+                       tr("SplashMol v1.3 \r\nMade with <3 by "
                           "CRH6F-A-0464\r\n\r\nBuilt with Qt 5.14.1"));
 }
 QFont App::adaptive_font_size(QFont f, QString str) {
@@ -39,7 +67,12 @@ QFont App::adaptive_font_size(QFont f, QString str) {
             bound.height() <= ui->resultLabel->height())
             fit = true;
         else
-            f.setPointSize(f.pointSize() - 8);
+            f.setPointSize(f.pointSize() - 6);
     }
     return f;
+}
+void App::change_font_size(int size) {
+    QFont tmpfont = ui->resultLabel->font();
+    tmpfont.setPointSize(size);
+    ui->resultLabel->setFont(tmpfont);
 }

@@ -1,47 +1,52 @@
 #include "calc.h"
-#include <iostream>
 double calc_mass(string input) {
     init();
     bool inGroup = false; // in parentheses flag
     input += '*';
-    for (int i = 0; i < (input.length() - 1); i++) {
-        if (is_uppercase(input[i]) && !inGroup) { // parse normal char
-            if (is_digit(input[i + 1]))           // followed by subscripts?
-                tmp += mp[input[i]];
-            else if (is_lowercase(input[i + 1])) // name has two chars?
-                tmp += multi_name_parse(input[i], input[i+1]);
+    unsigned long len = input.length();
+    for (unsigned long i = 0; i < (len - 1); i++) {
+        char i1 = input.at(i), i2 = input.at(i + 1);
+        if (is_uppercase(i1) && !inGroup) { // parse normal char
+            if (is_digit(i2))               // followed by subscripts?
+                tmp += mp[string(1, i1)];
+            else if (is_lowercase(i2)) // name has two chars?
+                tmp += mp[input.substr(i, 2)];
             else {
-                ans += mp[input[i]];
+                ans += mp[string(1, i1)];
                 flush();
             }
-        } else if (is_digit(input[i])) { // parse subscript number
-            for (int j = i; j < input.length() - 1; j++)  // get multiple digits
-                if (is_digit(input[j]))
-                    num = num * 10 + (input[j] - '0');
+        } else if (is_digit(i1)) { // parse subscript number
+            for (unsigned long j = i; j < (len - 1);
+                 j++) { // get multiple digits
+                char i3 = input.at(j);
+                if (is_digit(i3))
+                    num = num * 10 + (i3 - '0');
                 else
                     break;
+            }
             ans += (tmp * num);
             tmp = num = 0;
-        } else if (input[i] == ')') { // end of parentheses
+        } else if (i1 == ')') { // end of parentheses
             inGroup = false;
-        } else if (input[i] == '(' ||
-                   inGroup) { // entering a pair of parentheses
+        } else if (i1 == '(' || inGroup) { // entering a pair of parentheses
             if (!inGroup) flush();
             inGroup = true;
-            if (is_uppercase(input[i])) { // parse names
-                if (is_lowercase(input[i + 1]))
-                    tmp += multi_name_parse(input[i], input[i+1]);
-                else 
-                    tmp += mp[input[i]];
+            if (is_uppercase(i1)) { // parse names
+                if (is_lowercase(i2))
+                    tmp += mp[input.substr(i, 2)];
+                else
+                    tmp += mp[string(1, i1)];
             }
-        } else if (input[i] == '-') { // parse water of hydration
-            int tmp_loc = i + 1;
-            for (int j = i + 1; j < input.length() - 1;
-                 j++, tmp_loc++) // get multiple digits
-                if (is_digit(input[j]))
-                    num = num * 10 + (input[j] - '0');
+        } else if (i1 == '-') { // parse water of hydration
+            unsigned long tmp_loc = i + 1;
+            for (unsigned long j = i + 1; j < (len - 1);
+                 j++, tmp_loc++) { // get multiple digits
+                char i3 = input.at(j);
+                if (is_digit(i3))
+                    num = num * 10 + (i3 - '0');
                 else
                     break;
+            }
             if (input[tmp_loc] == 'H' && input[tmp_loc + 1] == '2' &&
                 input[tmp_loc + 2] == 'O') { // some pre-checks
                 ans += ((num)*18);

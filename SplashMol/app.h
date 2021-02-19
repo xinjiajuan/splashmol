@@ -2,6 +2,7 @@
 #define APP_H
 
 #include <QApplication>
+#include <QButtonGroup>
 #include <QIcon>
 #include <QMessageBox>
 #include <QWidget>
@@ -19,11 +20,14 @@ class App : public QWidget{
   private slots:
     void on_calcButton_clicked();
     void on_aboutButton_clicked();
+    void clear_text_area();
 
   private:
     Ui::App *ui;
+    QButtonGroup *mode;
     QString input;
     double ans;
     QFont adaptive_font_size(QFont f, QString str);
+    void change_font_size(int size);
 };
 #endif // APP_H
