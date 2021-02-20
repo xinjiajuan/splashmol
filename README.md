@@ -7,7 +7,7 @@ Simply type in chemical formulas in their natural form, with subscripts replaced
 
 For formulas involving water of hydration (water of crystallization), use `-` as separator.
 
-The app supports two calculation modes: Normal Mode and High School Mode. In Normal Mode,  all elements are supported and the results can be rounded to the precision you prefer (which can be chosen in the spin box next to it). In High School Mode, only a small range of elements are supported (They are: `C H O N P S K I Ba Au Ca Cl Na Mg Al Si Mn Fe Cu Zn Ag Hg`) and their atomic mass are all rounded to their typical value used in high school chemistry calculations.
+The app supports two calculation modes: Normal Mode and High School Mode. In Normal Mode,  all elements are supported and the results can be rounded to the precision you prefer (which can be chosen in the spin box next to it). In High School Mode (which is designed mainly in compliance with the Chinese High School Chemistry Curriculum), only a small range of elements are supported (They are: `C H O N P S K I Ba Au Ca Cl Na Mg Al Si Mn Fe Cu Zn Ag Hg`) and their atomic mass are all rounded to their typical value used in high school chemistry calculations.
 
 Please note that all elements are case sensitive.
 
