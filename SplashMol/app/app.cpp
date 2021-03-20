@@ -10,8 +10,6 @@ App::App(QWidget *parent): QWidget(parent), ui(new Ui::App){
     ui->calcButton->setShortcut(Qt::Key_Enter);
     ui->calcButton->setShortcut(Qt::Key_Return);
     connect(ui->lineEdit, &QLineEdit::textEdited, this, &App::clear_text_area);
-    ui->spinBox->setMaximum(9);
-    ui->spinBox->setValue(2);
     ui->radioButtonSchool->setChecked(true);
     init_table_school();
 }
@@ -28,7 +26,7 @@ void App::on_calcButton_clicked() {
     ans = calc_mass(input.toUtf8().constData());
     QString str;
     if (!mode_selection)
-        str = QString::number(ans, 'f', ui->spinBox->value());
+        str = QString::number(ans, 'f', 1); // TODO
     else {
         str = QString::number(ans, 'f', 1);
         if (str.endsWith(".0"))
@@ -48,10 +46,9 @@ void App::clear_text_area() {
     ui->resultLabel->setText("<b> See result here </b>");
     ui->calcButton->setIcon(QIcon(":/assets/assets/calc.png"));
 }
-void App::on_aboutButton_clicked() {
-    QMessageBox::about(this, tr("About SplashMol"),
-                       tr("SplashMol v1.3 \r\nMade with <3 by "
-                          "CRH6F-A-0464\r\n\r\nBuilt with Qt 5.14.1"));
+void App::on_settingsButton_clicked() {
+    Settings = new settings();
+    Settings->show();
 }
 QFont App::adaptive_font_size(QFont f, QString str) {
     /* Credits @ https://gist.github.com/earthday/7cb3cb9b00f033e05834 */

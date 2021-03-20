@@ -14,7 +14,7 @@
    <string>SplashMol</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="res.qrc">
+   <iconset resource="../res.qrc">
     <normaloff>:/assets/assets/SplashMol.png</normaloff>:/assets/assets/SplashMol.png</iconset>
   </property>
   <property name="toolTip">
@@ -54,7 +54,7 @@
     <string>Calculate</string>
    </property>
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../res.qrc">
      <normaloff>:/assets/assets/calc.png</normaloff>:/assets/assets/calc.png</iconset>
    </property>
    <property name="autoRepeat">
@@ -70,7 +70,7 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="aboutButton">
+  <widget class="QPushButton" name="settingsButton">
    <property name="geometry">
     <rect>
      <x>21</x>
@@ -80,11 +80,11 @@
     </rect>
    </property>
    <property name="text">
-    <string>About</string>
+    <string>Settings</string>
    </property>
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/assets/assets/about.png</normaloff>:/assets/assets/about.png</iconset>
+    <iconset resource="../res.qrc">
+     <normaloff>:/assets/assets/settings.png</normaloff>:/assets/assets/settings.png</iconset>
    </property>
    <property name="autoRepeat">
     <bool>true</bool>
@@ -165,16 +165,6 @@
    <property name="checkable">
     <bool>false</bool>
    </property>
-   <widget class="QSpinBox" name="spinBox">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>25</y>
-      <width>30</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QRadioButton" name="radioButtonNormal">
     <property name="geometry">
      <rect>
@@ -188,7 +178,7 @@
      <string>Normal</string>
     </property>
     <property name="icon">
-     <iconset resource="res.qrc">
+     <iconset resource="../res.qrc">
       <normaloff>:/assets/assets/normal.png</normaloff>:/assets/assets/normal.png</iconset>
     </property>
    </widget>
@@ -205,32 +195,14 @@
      <string>High School</string>
     </property>
     <property name="icon">
-     <iconset resource="res.qrc">
+     <iconset resource="../res.qrc">
       <normaloff>:/assets/assets/school.png</normaloff>:/assets/assets/school.png</iconset>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>20</y>
-      <width>31</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>7</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Digits:</string>
     </property>
    </widget>
   </widget>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="../res.qrc"/>
  </resources>
  <connections/>
 </ui>

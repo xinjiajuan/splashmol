@@ -18,16 +18,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     algo/calc_tools.cpp \
     algo/init_table.cpp \
+    app/settings/settings.cpp \
     main.cpp \
     app/app.cpp \
     algo/calc.cpp
 
 HEADERS += \
     app/app.h \
-    algo/calc.h
+    algo/calc.h \
+    app/settings/settings.h
 
 FORMS += \
-    app/app.ui
+    app/app.ui \
+    app/settings/settings.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

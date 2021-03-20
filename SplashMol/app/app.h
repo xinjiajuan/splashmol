@@ -1,6 +1,7 @@
 #ifndef APP_H
 #define APP_H
 
+#include "settings/settings.h"
 #include <QApplication>
 #include <QButtonGroup>
 #include <QDebug>
@@ -21,7 +22,7 @@ class App : public QWidget{
 
   private slots:
     void on_calcButton_clicked();
-    void on_aboutButton_clicked();
+    void on_settingsButton_clicked();
     void clear_text_area();
 
   private:
@@ -31,5 +32,6 @@ class App : public QWidget{
     double ans;
     QFont adaptive_font_size(QFont f, QString str);
     void change_font_size(int size);
+    settings *Settings;
 };
 #endif // APP_H

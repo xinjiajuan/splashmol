@@ -7,5 +7,6 @@
         <file>assets/finish.png</file>
         <file>assets/calc.png</file>
         <file>assets/settings.png</file>
+        <file>assets/back.png</file>
     </qresource>
 </RCC>
