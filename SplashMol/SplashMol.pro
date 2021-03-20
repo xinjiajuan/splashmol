@@ -16,18 +16,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    calc_tools.cpp \
-    init_table.cpp \
+    algo/calc_tools.cpp \
+    algo/init_table.cpp \
     main.cpp \
-    app.cpp \
-    calc.cpp
+    app/app.cpp \
+    algo/calc.cpp
 
 HEADERS += \
-    app.h \
-    calc.h
+    app/app.h \
+    algo/calc.h
 
 FORMS += \
-    app.ui
+    app/app.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

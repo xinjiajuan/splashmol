@@ -1,4 +1,4 @@
-#include <calc.h>
+#include "calc.h"
 void init_table_school() {
     mp.clear();
     mp["C"] = 12.0;

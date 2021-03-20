@@ -3,9 +3,11 @@
 
 #include <QApplication>
 #include <QButtonGroup>
+#include <QDebug>
 #include <QIcon>
 #include <QMessageBox>
 #include <QWidget>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class App; }
 QT_END_NAMESPACE

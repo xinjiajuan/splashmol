@@ -1,7 +1,6 @@
 #include "app.h"
-#include "calc.h"
+#include "algo/calc.h"
 #include "ui_app.h"
-#include <QDebug>
 App::App(QWidget *parent): QWidget(parent), ui(new Ui::App){
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
