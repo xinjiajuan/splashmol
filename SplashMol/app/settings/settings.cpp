@@ -1,15 +1,11 @@
 #include "settings.h"
 #include "app/app.h"
 #include "ui_settings.h"
-settings::settings(QWidget *parent) :
-                                      QDialog(parent),
-                                      ui(new Ui::settings)
-{
+settings::settings(QWidget *parent) : QDialog(parent), ui(new Ui::settings) {
     ui->setupUi(this);
     ui->digitsSpinBox->setMaximum(9);
     QString filename = QDir::currentPath() + "/.SplashMol.ini";
     setting = new QSettings(filename, QSettings::IniFormat);
-    qDebug() << setting->fileName();
     setting->setIniCodec("UTF-8");
     setting->beginGroup("Settings");
     ui->languageComboBox->addItem("English");
