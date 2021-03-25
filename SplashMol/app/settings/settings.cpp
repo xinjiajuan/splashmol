@@ -1,8 +1,10 @@
 #include "settings.h"
 #include "app/app.h"
 #include "ui_settings.h"
+int get_decimal_digits() { return setting->value("decimal_digits").toInt(); }
 settings::settings(QWidget *parent) : QDialog(parent), ui(new Ui::settings) {
     ui->setupUi(this);
+
     ui->digitsSpinBox->setMaximum(9);
     QString filename = QDir::currentPath() + "/.SplashMol.ini";
     setting = new QSettings(filename, QSettings::IniFormat);
@@ -20,7 +22,7 @@ settings::settings(QWidget *parent) : QDialog(parent), ui(new Ui::settings) {
         digits = 2;
         ui->digitsSpinBox->setValue(digits);
     } else
-        ui->digitsSpinBox->setValue(setting->value("decimal_digits").toInt());
+        ui->digitsSpinBox->setValue(get_decimal_digits());
 }
 settings::~settings() { delete ui; }
 void settings::on_backButton_clicked() {

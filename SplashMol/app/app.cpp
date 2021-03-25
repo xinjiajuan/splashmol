@@ -1,5 +1,6 @@
 #include "app.h"
 #include "algo/calc.h"
+#include "settings/settings.h"
 #include "ui_app.h"
 App::App(QWidget *parent): QWidget(parent), ui(new Ui::App){
     ui->setupUi(this);
@@ -24,7 +25,8 @@ void App::on_calcButton_clicked() {
     ans = calc_mass(input.toUtf8().constData());
     QString str;
     if (!mode_selection)
-        str = QString::number(ans, 'f', 1); // TODO
+        str = QString::number(ans, 'f',
+                              get_decimal_digits()); // TODO
     else {
         str = QString::number(ans, 'f', 1);
         if (str.endsWith(".0"))

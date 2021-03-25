@@ -6,6 +6,8 @@
 #include <QSettings>
 #include <QString>
 
+static QSettings *setting;
+int get_decimal_digits();
 namespace Ui {
 class settings;
 }
@@ -17,7 +19,6 @@ class settings : public QDialog
   public:
     explicit settings(QWidget *parent = nullptr);
     ~settings();
-
   private slots:
     void on_backButton_clicked();
 
@@ -25,7 +26,6 @@ class settings : public QDialog
 
   private:
     Ui::settings *ui;
-    QSettings *setting;
     int digits, language_index;
     QString language;
 };
