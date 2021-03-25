@@ -21,8 +21,12 @@ class settings : public QDialog
   private slots:
     void on_backButton_clicked();
 
+    void on_aboutButton_clicked();
+
   private:
     Ui::settings *ui;
+    int digits;
+    QSettings *setting;
 };
 
 #endif // SETTINGS_H
