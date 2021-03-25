@@ -13,9 +13,7 @@ App::App(QWidget *parent): QWidget(parent), ui(new Ui::App){
     ui->radioButtonSchool->setChecked(true);
     init_table_school();
 }
-App::~App(){
-    delete ui;
-}
+App::~App() { delete ui; }
 void App::on_calcButton_clicked() {
     int mode_selection = mode->checkedId();
     if (!mode_selection)

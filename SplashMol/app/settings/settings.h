@@ -25,8 +25,9 @@ class settings : public QDialog
 
   private:
     Ui::settings *ui;
-    int digits;
     QSettings *setting;
+    int digits, language_index;
+    QString language;
 };
 
 #endif // SETTINGS_H

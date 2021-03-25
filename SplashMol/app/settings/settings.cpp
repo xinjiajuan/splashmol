@@ -12,21 +12,26 @@ settings::settings(QWidget *parent) :
     qDebug() << setting->fileName();
     setting->setIniCodec("UTF-8");
     setting->beginGroup("Settings");
+    ui->languageComboBox->addItem("English");
+    ui->languageComboBox->addItem("中文");
+    if (setting->value("language").isNull()) {
+        language = "English";
+        ui->languageComboBox->setCurrentText(language);
+    } else
+        ui->languageComboBox->setCurrentText(
+            setting->value("language").toString());
     if (setting->value("decimal_digits").isNull()) {
         digits = 2;
-        ui->digitsSpinBox->setValue(2);
+        ui->digitsSpinBox->setValue(digits);
     } else
         ui->digitsSpinBox->setValue(setting->value("decimal_digits").toInt());
 }
-
-settings::~settings()
-{
-    delete ui;
-}
-
+settings::~settings() { delete ui; }
 void settings::on_backButton_clicked() {
     digits = ui->digitsSpinBox->value();
     setting->setValue("decimal_digits", digits);
+    language = ui->languageComboBox->currentText();
+    setting->setValue("language", language);
     settings::close();
 }
 
