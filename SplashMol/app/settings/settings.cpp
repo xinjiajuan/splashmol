@@ -1,13 +1,11 @@
 #include "settings.h"
 #include "app/app.h"
 #include "ui_settings.h"
-int get_decimal_digits() { return setting->value("decimal_digits").toInt(); }
+QString filename = QDir::currentPath() + "/.SplashMol.ini";
+QSettings *setting = new QSettings(filename, QSettings::IniFormat);
 settings::settings(QWidget *parent) : QDialog(parent), ui(new Ui::settings) {
     ui->setupUi(this);
-
     ui->digitsSpinBox->setMaximum(9);
-    QString filename = QDir::currentPath() + "/.SplashMol.ini";
-    setting = new QSettings(filename, QSettings::IniFormat);
     setting->setIniCodec("UTF-8");
     setting->beginGroup("Settings");
     ui->languageComboBox->addItem("English");
@@ -25,6 +23,7 @@ settings::settings(QWidget *parent) : QDialog(parent), ui(new Ui::settings) {
         ui->digitsSpinBox->setValue(get_decimal_digits());
 }
 settings::~settings() { delete ui; }
+int get_decimal_digits() { return setting->value("decimal_digits").toInt(); }
 void settings::on_backButton_clicked() {
     digits = ui->digitsSpinBox->value();
     setting->setValue("decimal_digits", digits);
@@ -32,7 +31,6 @@ void settings::on_backButton_clicked() {
     setting->setValue("language", language);
     settings::close();
 }
-
 void settings::on_aboutButton_clicked() {
     QMessageBox::about(this, tr("About SplashMol"),
                        tr("SplashMol v1.4 \r\nMade with <3 by "

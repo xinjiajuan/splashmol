@@ -6,8 +6,9 @@
 #include <QSettings>
 #include <QString>
 
-static QSettings *setting;
-int get_decimal_digits();
+extern QSettings *setting;
+extern QString filename;
+extern int get_decimal_digits();
 namespace Ui {
 class settings;
 }
